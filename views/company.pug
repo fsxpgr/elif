@@ -1,0 +1,40 @@
+extends layout
+
+block content
+    - if (type == "parent") {
+    form(action="/company/new",method="post")
+        label='Name'
+        input(type="text",name="name")
+        label.radio-inline='Cash'    
+        input(type="text",name="cash")
+        label.radio-inline='Description'    
+        input(type="text",name="desc")
+        label.radio-inline='Location'    
+        input(type="text",name="location")
+        label.radio-inline='Office tel. number'    
+        input(type="text",name="tel_num")
+        label.radio-inline='Upload img'    
+        <input type="file" name="pic" accept="image/*">
+        input(type="submit",value="submit")
+    - } else if (type == "exist") {
+    form(action="/company/"+data.id,method="post")
+        input(type="text",name="name",value=data.name)
+        input(type="text",name="cash",value=data.cash)
+        input(type="text",name="desc",value=data.desc)
+        input(type="text",name="location",value=data.location)
+        input(type="text",name="tel_num",value=data.tel_num)
+        label.radio-inline='Upload img'    
+        <input type="file" name="pic" accept="image/*">
+        input(type="submit",name="submit",value="Update")
+        input(type="submit",name="submit",value="Delete")
+    - } else if (type == "child") {
+    form(action="/company/new/"+id,method="post")
+        input(type="text",name="name")
+        input(type="text",name="cash")
+        input(type="text",name="desc")
+        input(type="text",name="location")
+        input(type="text",name="tel_num")
+        label.radio-inline='Upload img'    
+        <input type="file" name="pic" accept="image/*">
+        input(type="submit",value="submit")
+    - }

@@ -1,0 +1,35 @@
+extends layout
+
+block content
+	- var level = "-"
+	- var parent = []
+	- var sort = (e,l) => {
+	-	companies.forEach((item)=>{
+	-	if (e.id == item.parent_id) {
+	-	if (item.sum_cashe == undefined || item.sum_cashe == null) item.sum_cashe = ''
+	-	level = l + "-"
+	ul
+		li 
+			a(href='/company/'+item.id) #{level} #{item.name} 
+			|| #{item.cash}$ | #{item.sum_cashe}$
+			a(href='/company/from_parent/'+item.id) +
+			-sort(item, level)
+	-	} else {
+	-	level = l
+	-}
+	- })
+	- }
+	- companies.forEach((e)=>{
+	-	if (e.parent_id == null) parent.push(e);
+	- })
+	ul
+		-parent.forEach((e)=>{
+		- level = "-"	
+		- if (e.sum_cashe == undefined || e.sum_cashe == null) e.sum_cashe = ''
+		li 
+			a(href='/company/'+e.id) #{level} #{e.name} 
+			|| #{e.cash}$ | #{e.sum_cashe}$
+			a(href='/company/from_parent/'+e.id) +
+			- sort(e, level)
+		-})
+	a(href="/company") +
