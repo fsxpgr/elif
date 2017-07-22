@@ -1,7 +1,13 @@
 doctype html
 html
-	head
-		link(rel='stylesheet',href='/stylesheets/style.css')
-		title= title
-	body
-		block content
+  head
+    title= 'Company Database'
+    link(rel='stylesheet', href='./../stylesheets/style.css')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto')
+  body
+    .header
+        h1='Company Database'
+    .content
+        block content
+    .footer
+        small='created by Olexiy Bojko'
