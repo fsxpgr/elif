@@ -1,0 +1,9 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+  <form action="/company/new" method="post">
+    <input type="text" name="name">
+    <input type="text" name="cash">
+    <input type="submit" value="submit">
+  </form>
+{% endblock %}
