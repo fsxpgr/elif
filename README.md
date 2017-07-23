@@ -1,7 +1,10 @@
-installing
+Installing
+----------
+> ***npm install***
 
-_npm install_
-
+----------
+##To start server on localhost:3000##
+> ***npm start***
 
 
 
