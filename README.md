@@ -5,7 +5,7 @@ Installing
 
 
 To start server on localhost:3000
-> ***npm start***
+> ***node ./bin/www***
 
 
 Application based on RethinkDB,
