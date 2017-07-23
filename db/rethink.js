@@ -1,8 +1,8 @@
 r = require('rethinkdb');
 var ref = r.table('companies');
-var conn;
+var conn
 r.connect({
-    db: 'new'
+    db: 'new', host:'nightfall.com.ua'
 }, function(err, connection) {
     if (err) throw err;
     conn = connection;
@@ -22,17 +22,21 @@ var addCompany = (name, cash, desc, location, tel_num, /*img,*/ callback) => {//
             sum_cashe:null,
             parent_id: null
         }).run(conn, (err,res) => {
-            return callback();
+            return callback(res);
         })
 }
 
 var getCompanies = (callback) => {
     ref.run(conn,(err,cursor) => {
-        cursor.toArray((err,res) => {
-            res.forEach(function(element) { 
-            }, this);
-            return callback(res);
-        })
+        if (cursor == undefined) {
+            return callback(null);
+        } else {
+            cursor.toArray((err,res) => {
+                res.forEach(function(element) { 
+                }, this);
+                return callback(res);
+            })
+        }
     })
 }
 
@@ -171,6 +175,17 @@ var save = (e,callback)=>{
 }
 
 
+
+
+
+var companyInfo = (id,callback) => {
+    ref.get(id).run(conn,(err,res)=>{
+        return callback(res);
+    })
+}
+
+
+
 module.exports.getCompanies = getCompanies;
 module.exports.addCompany = addCompany;
 module.exports.getCompany = getCompany;
@@ -179,3 +194,4 @@ module.exports.deleteCompany = deleteCompany;
 module.exports.addChild = addChild;
 module.exports.updateCash = updateCash;
 module.exports.updateCashAfterDelete =updateCashAfterDelete;
+ module.exports.companyInfo = companyInfo;

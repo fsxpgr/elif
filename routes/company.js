@@ -28,7 +28,8 @@ router.post('/new/:id',(req,res,next)=>{
 })
 
 router.post('/new',(req,res,next)=>{
-    db.addCompany(req.body.name, req.body.cash, req.body.desc, req.body.location, req.body.tel_num, /*req.body.img,*/()=>{
+    db.addCompany(req.body.name, req.body.cash, req.body.desc, req.body.location, req.body.tel_num, /*req.body.img,*/(e)=>{
+        console.log(e);
         res.redirect('/');
     });
 })
@@ -57,8 +58,6 @@ router.post('/:id',(req,res,next)=>{
 
     }
 })
-
-
 
 
 

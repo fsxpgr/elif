@@ -224,6 +224,7 @@ margin: 0px 20px 20px 20px;
 		box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 2px 2px rgba(0,0,0,0.23);
 }
 .right{
+	min-width: 500px;
 margin: 15px;
 			box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 2px 2px rgba(0,0,0,0.23);
 }
@@ -237,17 +238,33 @@ margin: 15px;
 }
 
 .button_block{
-	flex-direction: row;
-justify-content: space-around
+	display: flex;
+	text-align: center;
+		justify-content: center;
 }
-.button_block>.formgroup{
-
-	flex-direction: row;
+.button_block >a {
 	justify-content: center;
-}
-.button_block>.formgroup>input{
+	font: 25px 'Roboto', sans-serif;
+	background-color: #ff9800;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 2px 2px rgba(0,0,0,0.23);
+	transition: all .2s ease-in-out;
+	height: 40px;
+	width: 300px;
+	padding: 5px 0 0 0;
 	margin: 15px;
+}
 
+
+.button_block >a:hover{
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+	cursor: pointer;
+}
+
+.button_block > a:focus{
+	outline: none;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 2px 2px rgba(0,0,0,0.23);
+	transition: all .01s ease-in-out;
+	transform: translateX(2px) translateY(2px);
 }
 
 
