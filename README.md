@@ -1,6 +1,8 @@
-##Installing
+Company Databasefor ElifTech
+
+Installing
 > ***npm install***
 
-----------
-##To start server on localhost:3000
+
+To start server on localhost:3000
 > ***npm start***
