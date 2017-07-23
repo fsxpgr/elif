@@ -3,13 +3,19 @@ extends layout
 block content
     .section
         .left
-            img(src="", alt="")
-        .right
+            img(src="/img/company_logo_def.png", alt="")
+        .right   	  
             .row1
-            .row2
-            .row3
-            .row4
+                h2='Daddy inc'
+                    span='50$ | 100$'
+            label='Description' 
+            h3.row2='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid perspiciatis repudiandae, veritatis sed, dignissimos labore tempore blanditiis esse eveniet magni incidunt nobis amet similique in hic nostrum. Ea est, dolorem.'
+            label='Location'    
+            h3.row3="Lorem ipsum dolor sit amet."
+            label='Office tel. number'    
+            h3.row4="+22222222222"
     .button_block
-            .but1
-            .but2
-            .but3
+        form.formgroup(action="",method="post")
+            input(type="submit",value="Edit")  
+            input(type="submit",value="Delete")
+            input(type="submit",value="Add child")         

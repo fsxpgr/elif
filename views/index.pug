@@ -7,12 +7,13 @@ block content
 	-	companies.forEach((item)=>{
 	-	if (e.id == item.parent_id) {
 	-	if (item.sum_cashe == undefined || item.sum_cashe == null) item.sum_cashe = ''
-	-	level = l + "-"
+	-	level = l + ""
 	ul
-		li 
-			a(href='/company/'+item.id) #{level} #{item.name} 
-			|| #{item.cash}$ | #{item.sum_cashe}$
-			a(href='/company/from_parent/'+item.id) +
+		li
+			.branch
+				a(href='/company/'+item.id) #{level} #{item.name} 
+				span.pull-right #{item.cash}K$ | #{item.sum_cashe}K$
+					a(href='/company/from_parent/'+item.id) +
 			-sort(item, level)
 	-	} else {
 	-	level = l
@@ -24,12 +25,13 @@ block content
 	- })
 	ul
 		-parent.forEach((e)=>{
-		- level = "-"	
+		- level = ""	
 		- if (e.sum_cashe == undefined || e.sum_cashe == null) e.sum_cashe = ''
-		li 
-			a(href='/company/'+e.id) #{level} #{e.name} 
-			|| #{e.cash}$ | #{e.sum_cashe}$
-			a(href='/company/from_parent/'+e.id) +
+		li
+			.branch
+				a(href='/company/'+e.id) #{level} #{e.name} 
+				span.pull-right #{e.cash}K$ | #{e.sum_cashe}K$
+					a(href='/company/from_parent/'+e.id) +
 			- sort(e, level)
 		-})
-	a(href="/company") +
+	a.add-new(href="/company") +

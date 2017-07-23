@@ -11,14 +11,14 @@ r.connect({
 
 
 
-var addCompany = (name, cash, desc, location, tel_num, img, callback) => {//
+var addCompany = (name, cash, desc, location, tel_num, /*img,*/ callback) => {//
         ref.insert({
             name: name,
             cash: cash,
             desc: desc,//
             location: location,//
             tel_num: tel_num,//
-            img: img,//
+/*            img: img,//*/
             sum_cashe:null,
             parent_id: null
         }).run(conn, (err,res) => {
@@ -49,7 +49,7 @@ var updateCompany = (id,e,callback) => {
         desc: e.desc,//
         location: e.location,//
         tel_num: e.tel_num,//
-        img: e.img,//
+       /* img: e.img,//*/
     }).run(conn,(err,res)=>{
         return callback();
     })
@@ -68,7 +68,7 @@ var addChild = (id,data,callback) => {
         desc: data.desc,//
         location: data.location,//
         tel_num: data.tel_num,//
-        img: data.img,//
+/*        img: data.img,//*/
         sum_cashe:null,
         parent_id: id
     }).run(conn,(err,res)=>{

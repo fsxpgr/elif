@@ -2,12 +2,15 @@ doctype html
 html
   head
     title= 'Company Database'
-    link(rel='stylesheet', href='./../stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto')
+    link(rel="icon" type="image/png" href="/img/favicon.png")
   body
     .header
-        h1='Company Database'
+        a(href='/')
+            h1='Company Database'
     .content
         block content
     .footer
-        small='created by Olexiy Bojko'
+        a(href='https://github.com/fsxpgr')
+            small='created by Olexiy Bojko'

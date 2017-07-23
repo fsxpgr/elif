@@ -1,40 +1,53 @@
 extends layout
 
-block content
+block content 
     - if (type == "parent") {
-    form(action="/company/new",method="post")
-        label='Name'
-        input(type="text",name="name")
-        label.radio-inline='Cash'    
-        input(type="text",name="cash")
-        label.radio-inline='Description'    
-        input(type="text",name="desc")
-        label.radio-inline='Location'    
+    form.formgroup(action="/company/new",method="post")
+        label='Company name'    	  
+        input(type="text",name="name", required, placeholder="*", pattern='^[a-zA-Z]{1,15}+[0-9]{1,15}')
+        label='Worth of Company in $'    
+        input(type="text",name="cash", required, placeholder="*", pattern='[0-9]{1,6}')
+        label='Description'    
+        textarea(type="text",rows="3",name="desc")
+        label='Location'    
         input(type="text",name="location")
-        label.radio-inline='Office tel. number'    
+        label='Office tel. number'    
         input(type="text",name="tel_num")
-        label.radio-inline='Upload img'    
-        <input type="file" name="pic" accept="image/*">
-        input(type="submit",value="submit")
+        label='Upload Company logo'    
+        label#but(for="img")='Choose file...'
+        input(id="img" type="file" name="img" accept="image/png, image/jpg")
+        input(type="submit",value="Add new")
     - } else if (type == "exist") {
-    form(action="/company/"+data.id,method="post")
-        input(type="text",name="name",value=data.name)
-        input(type="text",name="cash",value=data.cash)
-        input(type="text",name="desc",value=data.desc)
+    form.formgroup(action="/company/"+data.id,method="post")
+        label='Company name'
+        input(type="text",name="name",value=data.name, required, placeholder="*", pattern='^[a-zA-Z]{1,15}+[0-9]{1,15}')
+        label='Worth of Company in $' 
+        input(type="text",name="cash",value=data.cash, required, placeholder="*", pattern='[0-9]{1,6}')
+        label='Description'  
+        textarea(type="text",rows="3",name="desc",value=data.desc)
+        label='Location'  
         input(type="text",name="location",value=data.location)
+        label='Office tel. number' 
         input(type="text",name="tel_num",value=data.tel_num)
-        label.radio-inline='Upload img'    
-        <input type="file" name="pic" accept="image/*">
+        label='Upload Company logo'    
+        label#but(for="img")='Choose file...'
+        input(id="img" type="file" name="img" accept="image/png, image/jpg")
         input(type="submit",name="submit",value="Update")
         input(type="submit",name="submit",value="Delete")
     - } else if (type == "child") {
-    form(action="/company/new/"+id,method="post")
-        input(type="text",name="name")
-        input(type="text",name="cash")
-        input(type="text",name="desc")
+    form.formgroup(action="/company/new/"+id,method="post")
+        label='Company name'
+        input(type="text",name="name", required, placeholder="*", pattern='^[a-zA-Z]{1,15}+[0-9]{1,15}')
+        label='Worth of Company in $' 
+        input(type="text",name="cash", required, placeholder="*", pattern='[0-9]{1,6}')
+        label='Description'  
+        textarea(type="text",rows="3",name="desc")
+        label='Location'  
         input(type="text",name="location")
+        label='Office tel. number' 
         input(type="text",name="tel_num")
-        label.radio-inline='Upload img'    
-        <input type="file" name="pic" accept="image/*">
-        input(type="submit",value="submit")
+        label='Upload Company logo'    
+        label#but(for="img")='Choose file...'
+        input(id="img" type="file" name="img" accept="image/png, image/jpg")
+        input(type="submit",value="Add new")
     - }
