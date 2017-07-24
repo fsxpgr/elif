@@ -50,12 +50,12 @@ var updateCompany = (id,e,callback) => {
     ref.get(id).update({
         name:e.name,
         cash:e.cash,
-        desc: e.desc,//
-        location: e.location,//
-        tel_num: e.tel_num,//
+        desc: e.desc,
+        location: e.location,
+        tel_num: e.tel_num,
        /* img: e.img,//*/
     }).run(conn,(err,res)=>{
-        return callback();
+        return callback(res);
     })
 }
 

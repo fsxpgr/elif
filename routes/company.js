@@ -8,6 +8,7 @@ router.get('/',(req,res,next)=>{
 
 router.get('/:id',(req,res,next)=>{
     db.getCompany(req.params.id,(data)=>{
+        console.log(data);
         res.render("company",{type:"exist",data:data})
     })
 })
@@ -29,7 +30,6 @@ router.post('/new/:id',(req,res,next)=>{
 
 router.post('/new',(req,res,next)=>{
     db.addCompany(req.body.name, req.body.cash, req.body.desc, req.body.location, req.body.tel_num, /*req.body.img,*/(e)=>{
-        console.log(e);
         res.redirect('/');
     });
 })

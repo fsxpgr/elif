@@ -8,7 +8,7 @@ block content
         label='Worth of Company in $'    
         input(type="text",name="cash", required, placeholder="*", pattern='[0-9]{1,6}')
         label='Description'    
-        textarea(type="text",rows="3",name="desc")
+        textarea(type="text",rows="3",name="desc") 
         label='Location'    
         input(type="text",name="location")
         label='Office tel. number'    
@@ -24,7 +24,7 @@ block content
         label='Worth of Company in $' 
         input(type="text",name="cash",value=data.cash, required, placeholder="*", pattern='[0-9]{1,6}')
         label='Description'  
-        textarea(type="text",rows="3",name="desc",value=data.desc)
+        textarea(type="text",rows="3",name="desc", value=data.desc) #{data.desc}
         label='Location'  
         input(type="text",name="location",value=data.location)
         label='Office tel. number' 
