@@ -13,9 +13,9 @@ block content
         input(type="text",name="location")
         label='Office tel. number'    
         input(type="text",name="tel_num")
-        label='Upload Company logo'    
-        label#but(for="img")='Choose file...'
-        input(id="img" type="file" name="img" accept="image/png, image/jpg")
+        //- label='Upload Company logo'    
+        //- label#but(for="img")='Choose file...'
+        //- input(id="img" type="file" name="img" accept="image/png, image/jpg")
         input(type="submit",value="Add new")
     - } else if (type == "exist") {
     form.formgroup(action="/company/"+data.id,method="post")
@@ -29,9 +29,9 @@ block content
         input(type="text",name="location",value=data.location)
         label='Office tel. number' 
         input(type="text",name="tel_num",value=data.tel_num)
-        label='Upload Company logo'    
-        label#but(for="img")='Choose file...'
-        input(id="img" type="file" name="img" accept="image/png, image/jpg")
+        //- label='Upload Company logo'    
+        //- label#but(for="img")='Choose file...'
+        //- input(id="img" type="file" name="img" accept="image/png, image/jpg")
         input(type="submit",name="submit",value="Update")
         input(type="submit",name="submit",value="Delete")
     - } else if (type == "child") {
@@ -46,8 +46,8 @@ block content
         input(type="text",name="location")
         label='Office tel. number' 
         input(type="text",name="tel_num")
-        label='Upload Company logo'    
-        label#but(for="img")='Choose file...'
-        input(id="img" type="file" name="img" accept="image/png, image/jpg")
+        //- label='Upload Company logo'    
+        //- label#but(for="img")='Choose file...'
+        //- input(id="img" type="file" name="img" accept="image/png, image/jpg")
         input(type="submit",value="Add new")
     - }
